@@ -1,4 +1,5 @@
 import { Form } from "@remix-run/react";
+import { Heading } from "~/components/Heading";
 import styles from "~/styles/app.css";
 
 export function links() {
@@ -10,9 +11,9 @@ export default function Styles() {
     <>
       <section className="Hero">
         <div className="_container">
-          <h1>
+          <Heading size={1}>
             Style Guide
-          </h1>
+          </Heading>
 
           <p className="Hero-description">
             This is a style guide for the Artifice Games website. It is a work in progress, and will be updated as the site is developed.
@@ -25,12 +26,12 @@ export default function Styles() {
           Typography
         </p>
 
-        <h1 className="_type-xl">XL Heading</h1>
-        <h1>Heading 1</h1>
-        <h2>Heading 2</h2>
-        <h3>Heading 3</h3>
-        <h4>Heading 4</h4>
-        <h5>Heading 5</h5>
+        <Heading size={1} className="_type-xl">XL Heading</Heading>
+        <Heading size={1}>Heading 1</Heading>
+        <Heading size={2}>Heading 2</Heading>
+        <Heading size={3}>Heading 3</Heading>
+        <Heading size={4}>Heading 4</Heading>
+        <Heading size={5}>Heading 5</Heading>
 
         <p>
           Lorem ipsum is a placeholder text commonly used in <strong>publishing, graphic design, and web development</strong>. It consists of nonsensical Latin words and phrases, which are designed to simulate the <em>appearance of real text</em> without conveying any actual meaning.
@@ -62,7 +63,9 @@ export default function Styles() {
           <div className="Card">
             <img className="Card-image" src="https://images.unsplash.com/photo-1585881728919-5c0ce925ad10?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="" />
 
-            <h3 className="Card-heading">Gisticle</h3>
+            <Heading size={3} className="Card-heading">
+              Gisticle
+            </Heading>
 
             <p className="Card-description">
               Lorem ipsum is a placeholder text commonly used in publishing, graphic design, and web development.
@@ -76,7 +79,9 @@ export default function Styles() {
           <div className="Card">
             <img className="Card-image" src="https://images.unsplash.com/photo-1585881728919-5c0ce925ad10?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="" />
 
-            <h3 className="Card-heading">Farsketched</h3>
+            <Heading size={3} className="Card-heading">
+              Farsketched
+            </Heading>
 
             <p className="Card-description">
               Lorem ipsum is a placeholder text commonly used in publishing, graphic design, and web development.
@@ -90,7 +95,9 @@ export default function Styles() {
           <div className="Card">
             <img className="Card-image" src="https://images.unsplash.com/photo-1585881728919-5c0ce925ad10?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="" />
 
-            <h3 className="Card-heading">Tresmojis</h3>
+            <Heading size={3} className="Card-heading">
+              Tresmojis
+            </Heading>
 
             <p className="Card-description">
               Lorem ipsum is a placeholder text commonly used in publishing, graphic design, and web development.
@@ -108,7 +115,9 @@ export default function Styles() {
 
         <div className="Newsletter">
           <div className="_container">
-            <h2 className="Newsletter-heading">Subscribe for updates</h2>
+            <Heading size={2} className="Newsletter-heading">
+              Subscribe for updates
+            </Heading>
 
             <p className="Newsletter-description">Get the latest updates on news and games from Artifice delivered straight to your inbox.</p>
 
