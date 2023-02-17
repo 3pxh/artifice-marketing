@@ -1,3 +1,4 @@
+import { Form } from "@remix-run/react";
 import styles from "~/styles/app.css";
 
 export function links() {
@@ -9,18 +10,18 @@ export default function Styles() {
     <>
       <section className="Hero">
         <div className="_container">
-          <h1 className="Hero-title">
+          <h1>
             Style Guide
           </h1>
 
-          <p className="Hero-description _type-h5">
+          <p className="Hero-description">
             This is a style guide for the Artifice Games website. It is a work in progress, and will be updated as the site is developed.
           </p>
         </div>
       </section>
 
       <section className="StyleGuide _container">
-        <p className="StyleGuide-heading _type-h5">
+        <p className="StyleGuide-heading">
           Typography
         </p>
 
@@ -53,7 +54,7 @@ export default function Styles() {
           <li>Ordered list item</li>
         </ol>
 
-        <p className="StyleGuide-heading _type-h5">
+        <p className="StyleGuide-heading">
           Cards
         </p>
 
@@ -61,7 +62,7 @@ export default function Styles() {
           <div className="Card">
             <img className="Card-image" src="https://images.unsplash.com/photo-1585881728919-5c0ce925ad10?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="" />
 
-            <h3 className="Card-title _type-h4">Gisticle</h3>
+            <h3 className="Card-heading">Gisticle</h3>
 
             <p className="Card-description">
               Lorem ipsum is a placeholder text commonly used in publishing, graphic design, and web development.
@@ -75,7 +76,7 @@ export default function Styles() {
           <div className="Card">
             <img className="Card-image" src="https://images.unsplash.com/photo-1585881728919-5c0ce925ad10?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="" />
 
-            <h3 className="Card-title _type-h4">Farsketched</h3>
+            <h3 className="Card-heading">Farsketched</h3>
 
             <p className="Card-description">
               Lorem ipsum is a placeholder text commonly used in publishing, graphic design, and web development.
@@ -89,7 +90,7 @@ export default function Styles() {
           <div className="Card">
             <img className="Card-image" src="https://images.unsplash.com/photo-1585881728919-5c0ce925ad10?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="" />
 
-            <h3 className="Card-title _type-h4">Tresmojis</h3>
+            <h3 className="Card-heading">Tresmojis</h3>
 
             <p className="Card-description">
               Lorem ipsum is a placeholder text commonly used in publishing, graphic design, and web development.
@@ -98,6 +99,26 @@ export default function Styles() {
             <a className="Card-button Button" href="/">
               Play Now →
             </a>
+          </div>
+        </div>
+
+        <p className="StyleGuide-heading">
+          Newsletter
+        </p>
+
+        <div className="Newsletter">
+          <div className="_container">
+            <h2 className="Newsletter-heading">Subscribe for updates</h2>
+
+            <p className="Newsletter-description">Get the latest updates on news and games from Artifice delivered straight to your inbox.</p>
+
+            <Form className="Newsletter-form">
+              <input type="email" placeholder="Email address" />
+
+              <button className="Button" type="submit">
+                Subscribe
+              </button>
+            </Form>
           </div>
         </div>
       </section>

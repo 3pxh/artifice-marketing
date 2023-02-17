@@ -35,8 +35,8 @@
 
   --line-height-base: 1.4;
 
-  /* Ref: Perfect fourth scale 
-          👉 https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=400&minRatio=1.25&maxFontSize=22&maxWidth=1600&maxRatio=1.333&steps=sm%2Cbase%2Ch5%2Ch4%2Ch3%2Ch2%2Ch1%2Cxl&baseStep=base&prefix=font-size&decimals=2&useRems=on&remValue=16&previewFont=Work+Sans */
+  // Ref: Perfect fourth scale 
+  // 👉 https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=400&minRatio=1.25&maxFontSize=22&maxWidth=1600&maxRatio=1.333&steps=sm%2Cbase%2Ch5%2Ch4%2Ch3%2Ch2%2Ch1%2Cxl&baseStep=base&prefix=font-size&decimals=2&useRems=on&remValue=16&previewFont=Work+Sans
   --font-size-sm: clamp(0.8rem, 0.31vw + 0.72rem, 1.03rem);
   --font-size-base: clamp(1rem, 0.5vw + 0.88rem, 1.38rem);
   --font-size-h5: clamp(1.25rem, 0.78vw + 1.06rem, 1.83rem);
@@ -45,6 +45,10 @@
   --font-size-h2: clamp(2.44rem, 2.53vw + 1.81rem, 4.34rem);
   --font-size-h1: clamp(3.05rem, 3.65vw + 2.14rem, 5.79rem);
   --font-size-xl: clamp(3.81rem, 5.2vw + 2.51rem, 7.71rem);
+
+  // Border radius
+  --border-radius-sm: 3px;
+  --border-radius-md: 6px;
 }
 
 
@@ -80,55 +84,79 @@ a {
 
 
 // Headings
-h1,
-._type-h1 {
+@mixin heading() {
   font-family: var(--font-family-primary);
+  margin-bottom: 0;
+}
+
+@mixin h1() {
+  @include heading();
+
   font-size: var(--font-size-h1);
   font-weight: var(--font-weight-primary-bold);
   line-height: 1.05;
-  margin-bottom: 0;
   margin-top: 0;
 }
 
-h2,
-._type-h2 {
-  font-family: var(--font-family-primary);
+@mixin h2() {
+  @include heading();
+
   font-size: var(--font-size-h2);
   font-weight: var(--font-weight-primary-bold);
   line-height: 1.1;
-  margin-bottom: 0;
   margin-top: 0;
 }
 
-h3,
-._type-h3 {
-  font-family: var(--font-family-primary);
+@mixin h3() {
+  @include heading();
+
   font-size: var(--font-size-h3);
   font-weight: var(--font-weight-primary-semibold);
   line-height: 1.1;
-  margin-bottom: 0;
   margin-top: 0;
-  margin-top: .5rem;
 }
 
-h4,
-._type-h4 {
-  font-family: var(--font-family-primary);
+@mixin h4() {
+  @include heading();
+
   font-size: var(--font-size-h4);
   font-weight: var(--font-weight-primary-semibold);
   line-height: 1.2;
-  margin-bottom: 0;
   margin-top: 1rem;
 }
 
-h5,
-._type-h5 {
-  font-family: var(--font-family-primary);
+@mixin h5() {
+  @include heading();
+
   font-size: var(--font-size-h5);
   font-weight: var(--font-weight-primary-semibold);
   line-height: 1.25;
-  margin-bottom: 0;
   margin-top: 1rem;
+}
+
+h1,
+.text-h1 {
+  @include h1();
+}
+
+h2,
+.text-h2 {
+  @include h2();
+}
+
+h3,
+.text-h3 {
+  @include h3();
+}
+
+h4,
+.text-h4 {
+  @include h4();
+}
+
+h5,
+.text-h5 {
+  @include h5();
 }
 
 // Paragraphs
@@ -145,12 +173,12 @@ p {
 
 // Type sizes and decorations
 small,
-._type-sm {
+.text-sm {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-primary-medium);
 }
 
-._type-xl {
+.text-xl {
   font-family: var(--font-family-primary);
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-primary-bold);
@@ -206,15 +234,40 @@ li {
 
 
 //
+// Forms
+// -----
+
+input[type="text"],
+input[type="email"] {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray);
+  border-radius: var(--border-radius-md);
+  color: var(--color-black);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-primary-medium);
+  padding: 0.5rem 1rem;
+  transition: border-color 75ms ease-in-out;
+
+  &:focus {
+    border-color: var(--color-link);
+    outline: none;
+  }
+}
+
+
+//
 // Button
 // ------
 
 .Button {
   background-color: var(--color-link);
-  border-radius: 6px;
+  border-radius: var(--border-radius-md);
   color: var(--color-white);
+  cursor: pointer;
+  border: 1px solid var(--color-blue-2);
   display: inline-block;
-  font-weight: var(--font-weight-primary-semibold);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-primary-medium);
   padding: 0.5rem 1rem;
   text-decoration: none;
   transition: background-color 75ms ease-in-out;
@@ -222,6 +275,11 @@ li {
   &:hover {
     background: var(--color-link–hover);
     color: var(--color-white);
+  }
+
+  &:active,
+  &:focus {
+    border-color: var(--color-blue-1);
   }
 }
 
@@ -312,6 +370,8 @@ li {
 }
 
 .Hero-description {
+  @include h5();
+
   max-width: 40ch;
 }
 
@@ -322,6 +382,7 @@ li {
 
 .Cards {
   display: grid;
+  grid-gap: .75rem;
   grid-template-columns: repeat(3, 1fr);
 }
 
@@ -330,20 +391,54 @@ li {
 // Card
 // ----
 
-.Card {
-
-}
-
 .Card-image {
   max-width: 100%;
 }
 
-.Card-title {
+.Card-heading {
+  @include h4();
+
   margin-bottom: .25rem;
 }
 
 .Card-description {
   margin-bottom: 1.25rem;
+}
+
+
+//
+// Newsletter
+// ----------
+
+.Newsletter {
+  background-color: var(--color-purple-1);
+  color: var(--color-white);
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.Newsletter-heading {
+  @include h3();
+}
+
+.Newsletter-form {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 450px;
+  margin-top: 1.5rem;
+
+  > input {
+    margin-right: .5rem;
+  }
+}
+
+.Newsletter-description {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: .5rem;
+  max-width: 40ch;
 }
 
 
@@ -356,7 +451,9 @@ li {
 }
 
 .StyleGuide-heading {
+  @include h5();
+
   border-bottom: .1em solid var(--color-purple-2);
   margin-bottom: 1.5rem;
-  margin-top: 3rem;
+  margin-top: 5rem;
 }
