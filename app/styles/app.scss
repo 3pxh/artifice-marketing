@@ -1,9 +1,16 @@
-/* Imports */
+// 
+// Imports
+// -------
+
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
-/* Design tokens */
+
+// 
+// Design tokens
+// -------------
+
 :root {
-  /* Color palette */
+  // Color palette
   --color-black: #000;
   --color-white: #fff;
   --color-gray: #3f3f3f;
@@ -15,11 +22,11 @@
   --color-blue-1: #6fa6fd;
   --color-blue-2: #3a86ff;
 
-  /* Applied color palette */
+  // Applied color palette
   --color-link: var(--color-blue-2);
   --color-link–hover: var(--color-blue-1);
 
-  /* Typography */
+  // Typography
   --font-family-primary: "Work Sans", "system-ui", "sans-serif";
 
   --font-weight-primary-medium: 500;
@@ -29,8 +36,7 @@
   --line-height-base: 1.4;
 
   /* Ref: Perfect fourth scale 
-          👉 https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=400&minRatio=1.25&maxFontSize=22&maxWidth=1600&maxRatio=1.333&steps=sm%2Cbase%2Ch5%2Ch4%2Ch3%2Ch2%2Ch1%2Cxl&baseStep=base&prefix=font-size&decimals=2&useRems=on&remValue=16&previewFont=Work+Sans
-  */
+          👉 https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=400&minRatio=1.25&maxFontSize=22&maxWidth=1600&maxRatio=1.333&steps=sm%2Cbase%2Ch5%2Ch4%2Ch3%2Ch2%2Ch1%2Cxl&baseStep=base&prefix=font-size&decimals=2&useRems=on&remValue=16&previewFont=Work+Sans */
   --font-size-sm: clamp(0.8rem, 0.31vw + 0.72rem, 1.03rem);
   --font-size-base: clamp(1rem, 0.5vw + 0.88rem, 1.38rem);
   --font-size-h5: clamp(1.25rem, 0.78vw + 1.06rem, 1.83rem);
@@ -42,7 +48,10 @@
 }
 
 
-/* Global styles */
+//
+// Global
+// ------
+
 :root {
   color: var(--color-black);
   font-family: var(--font-family-primary);
@@ -54,7 +63,12 @@ body {
   margin: 0;
 }
 
-/* Links */
+
+//
+// Typography
+// ----------
+
+// Links
 a {
   color: var(--color-link);
   transition: color 75ms ease-in-out;
@@ -64,7 +78,7 @@ a:hover {
   color: var(--color-link–hover);
 }
 
-/* Typography */
+// Headings
 h1,
 ._type-h1 {
   font-family: var(--font-family-primary);
@@ -116,6 +130,7 @@ h5,
   margin-top: 1rem;
 }
 
+// Paragraphs
 p {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-primary-medium);
@@ -127,6 +142,7 @@ p + p {
   margin-top: 1rem;
 }
 
+// Type sizes and decorations
 small,
 ._type-sm {
   font-size: var(--font-size-sm);
@@ -146,21 +162,16 @@ strong {
   font-weight: var(--font-weight-primary-bold);
 }
 
-/* Lists */
+// Lists
 li {
   font-size: var(--font-size-base);
 }
 
-/* Layout */
-._container {
-  --container-width: 1600px;
 
-  margin: 0 auto;
-  max-width: var(--container-width);
-  padding: 0 1rem;
-}
+//
+// Visibility
+// ----------
 
-/* Visibility */
 ._a11y_hidden {
   height: 1px;
   left: -10000px;
@@ -179,7 +190,24 @@ li {
   width: initial;
 }
 
-/* Button */
+
+//
+// Layout
+// ------
+
+._container {
+  --container-width: 1600px;
+
+  margin: 0 auto;
+  max-width: var(--container-width);
+  padding: 0 1rem;
+}
+
+
+//
+// Button
+// ------
+
 .Button {
   background-color: var(--color-link);
   border-radius: 6px;
@@ -196,7 +224,11 @@ li {
   color: var(--color-white);
 }
 
-/* Global header */
+
+//
+// Global header
+// -------------
+
 .GlobalHeader {
   background-color: var(--color-black);
   padding-bottom: 1rem;
@@ -214,7 +246,11 @@ li {
   justify-content: space-between;
 }
 
-/* Global Footer */
+
+// 
+// Global Footer
+// -------------
+
 .GlobalFooter {
   background-color: var(--color-black);
   color: var(--color-white);
@@ -223,7 +259,11 @@ li {
   text-align: center;
 }
 
-/* Navbar */
+
+//
+// Navbar
+// ------
+
 .Navbar a {
   position: relative;
   text-decoration: none;
@@ -254,7 +294,11 @@ li {
   margin-right: 1.75rem;
 }
 
-/* Hero */
+
+//
+// Hero
+// ----
+
 .Hero {
   background: linear-gradient(
     90deg,
@@ -270,24 +314,21 @@ li {
   max-width: 40ch;
 }
 
-/* Style Guide */
-.StyleGuide {
-  margin-bottom: 3rem;
-}
 
-.StyleGuide-heading {
-  border-bottom: .1em solid var(--color-purple-2);
-  margin-bottom: 1.5rem;
-  margin-top: 3rem;
-}
+//
+// Cards
+// -----
 
-/* Cards */
 .Cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
 
-/* Card */
+
+//
+// Card
+// ----
+
 .Card {
 
 }
@@ -302,4 +343,19 @@ li {
 
 .Card-description {
   margin-bottom: 1.25rem;
+}
+
+
+//
+// Style Guide
+// -----------
+
+.StyleGuide {
+  margin-bottom: 3rem;
+}
+
+.StyleGuide-heading {
+  border-bottom: .1em solid var(--color-purple-2);
+  margin-bottom: 1.5rem;
+  margin-top: 3rem;
 }
