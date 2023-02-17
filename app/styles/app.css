@@ -212,29 +212,21 @@ input[type=email]:focus {
   }
 }
 
-.GlobalFooter {
-  background-color: var(--color-black);
-  color: var(--color-white);
-  padding-bottom: 1rem;
-  padding-top: 1rem;
-  text-align: center;
-}
-
-.Navbar a {
+.GlobalHeader-nav a {
   position: relative;
   text-decoration: none;
 }
-.Navbar a.-is-active {
+.GlobalHeader-nav a.-is-active {
   text-decoration: underline;
   text-decoration-color: var(--color-white);
 }
 @media (min-width: 960px) {
-  .Navbar a.-is-active {
+  .GlobalHeader-nav a.-is-active {
     text-decoration: none;
   }
 }
 @media (min-width: 960px) {
-  .Navbar a::after {
+  .GlobalHeader-nav a::after {
     background-color: transparent;
     bottom: -0.35em;
     content: "";
@@ -244,31 +236,39 @@ input[type=email]:focus {
     transition: background-color 150ms ease-in-out;
     width: 110%;
   }
-  .Navbar a:hover::after, .Navbar a.-is-active::after {
+  .GlobalHeader-nav a:hover::after, .GlobalHeader-nav a.-is-active::after {
     background-color: var(--color-white);
   }
 }
 
-.Navbar ul {
+.GlobalHeader-nav ul {
   align-items: end;
   display: flex;
   flex-direction: column;
 }
 @media (min-width: 960px) {
-  .Navbar ul {
+  .GlobalHeader-nav ul {
     align-items: center;
     flex-direction: row;
   }
 }
 
-.Navbar li:not(:last-of-type) {
+.GlobalHeader-nav li:not(:last-of-type) {
   margin-bottom: 0.5rem;
 }
 @media (min-width: 960px) {
-  .Navbar li:not(:last-of-type) {
+  .GlobalHeader-nav li:not(:last-of-type) {
     margin-bottom: 0;
     margin-right: 1.75rem;
   }
+}
+
+.GlobalFooter {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  text-align: center;
 }
 
 .Hero {
@@ -305,11 +305,11 @@ input[type=email]:focus {
   }
 }
 
-.Card-image {
+.Cards-image {
   max-width: 100%;
 }
 
-.Card-heading {
+.Cards-heading {
   font-family: var(--font-family-primary);
   margin-bottom: 0;
   font-size: var(--font-size-h4);
@@ -319,7 +319,7 @@ input[type=email]:focus {
   margin-bottom: 0.25rem;
 }
 
-.Card-description {
+.Cards-description {
   margin-bottom: 1.25rem;
 }
 
@@ -363,6 +363,11 @@ input[type=email]:focus {
   margin-right: auto;
   margin-top: 0.5rem;
   max-width: 40ch;
+}
+
+.Homepage {
+  margin-bottom: 3rem;
+  margin-top: 3rem;
 }
 
 .StyleGuide {
