@@ -5,8 +5,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 
+//
+// Variables
+// ---------
+
+// Breakpoints
+$breakpoint-480: 480px;
+$breakpoint-720: 720px;
+$breakpoint-960: 960px;
+$breakpoint-1200: 1200px;
+$breakpoint-1440: 1440px;
+
+
 // 
-// Design tokens
+// Design Tokens
 // -------------
 
 :root {
@@ -45,10 +57,6 @@
   --font-size-h2: clamp(2.44rem, 2.53vw + 1.81rem, 4.34rem);
   --font-size-h1: clamp(3.05rem, 3.65vw + 2.14rem, 5.79rem);
   --font-size-xl: clamp(3.81rem, 5.2vw + 2.51rem, 7.71rem);
-
-  // Border radius
-  --border-radius-sm: 3px;
-  --border-radius-md: 6px;
 }
 
 
@@ -160,9 +168,14 @@ h5,
 }
 
 // Paragraphs
-p {
+@mixin paragraph() {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-primary-medium);
+}
+
+p {
+  @include paragraph();
+
   margin-bottom: 0;
   margin-top: 0;
 
@@ -239,13 +252,12 @@ li {
 
 input[type="text"],
 input[type="email"] {
+  @include paragraph();
+
   background-color: var(--color-white);
   border: 1px solid var(--color-gray);
-  border-radius: var(--border-radius-md);
   color: var(--color-black);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-primary-medium);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.25rem;
   transition: border-color 75ms ease-in-out;
 
   &:focus {
@@ -260,15 +272,14 @@ input[type="email"] {
 // ------
 
 .Button {
+  @include paragraph();
+
   background-color: var(--color-link);
-  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-white);
   color: var(--color-white);
   cursor: pointer;
-  border: 1px solid var(--color-blue-2);
   display: inline-block;
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-primary-medium);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.25rem;
   text-decoration: none;
   transition: background-color 75ms ease-in-out;
 
@@ -285,7 +296,7 @@ input[type="email"] {
 
 
 //
-// Global header
+// Global Header
 // -------------
 
 .GlobalHeader {
@@ -295,14 +306,17 @@ input[type="email"] {
 }
 
 .GlobalHeader-logo {
-  max-height: 100px;
-  width: auto;
+  height: 100px;
+  width: 100px;
 }
 
 .GlobalHeader-container {
-  align-items: center;
   display: flex;
   justify-content: space-between;
+
+  @media (min-width: $breakpoint-960) {
+    align-items: center;
+  }
 }
 
 
@@ -327,30 +341,52 @@ input[type="email"] {
   position: relative;
   text-decoration: none;
 
-  &::after {
-    background-color: transparent;
-    bottom: -.35em;
-    content: '';
-    height: 2px;
-    left: -5%;
-    position: absolute;
-    transition: background-color 150ms ease-in-out;
-    width: 110%;
+  &.-is-active {
+    text-decoration: underline;
+    text-decoration-color: var(--color-white);
+
+    @media (min-width: $breakpoint-960) {
+      text-decoration: none;
+    }
   }
-  
-  &:hover::after,
-  &.-is-active::after {
-    background-color: var(--color-white);
+
+  @media (min-width: $breakpoint-960) {
+    &::after {
+      background-color: transparent;
+      bottom: -.35em;
+      content: '';
+      height: 2px;
+      left: -5%;
+      position: absolute;
+      transition: background-color 150ms ease-in-out;
+      width: 110%;
+    }
+    
+    &:hover::after,
+    &.-is-active::after {
+      background-color: var(--color-white);
+    }
   }
 }
 
 .Navbar ul {
-  align-items: center;
+  align-items: end;
   display: flex;
+  flex-direction: column;
+  
+  @media (min-width: $breakpoint-960) {
+    align-items: center;
+    flex-direction: row;
+  }
 }
 
 .Navbar li:not(:last-of-type) {
-  margin-right: 1.75rem;
+  margin-bottom: .5rem;
+
+  @media (min-width: $breakpoint-960) {
+    margin-bottom: 0;
+    margin-right: 1.75rem;
+  }
 }
 
 
@@ -382,8 +418,17 @@ input[type="email"] {
 
 .Cards {
   display: grid;
-  grid-gap: .75rem;
-  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 3rem;
+  grid-template-columns: repeat(1, 1fr);
+
+  @media (min-width: $breakpoint-960) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: .75rem;
+  }
+
+  @media (min-width: $breakpoint-1200) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 
@@ -413,8 +458,14 @@ input[type="email"] {
 .Newsletter {
   background-color: var(--color-purple-1);
   color: var(--color-white);
-  padding: 5rem 0;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
   text-align: center;
+
+  @media (min-width: $breakpoint-960) {
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+  }
 }
 
 .Newsletter-heading {
@@ -426,7 +477,7 @@ input[type="email"] {
   margin-left: auto;
   margin-right: auto;
   max-width: 450px;
-  margin-top: 1.5rem;
+  margin-top: 1.75rem;
 
   > input {
     margin-right: .5rem;
@@ -455,5 +506,9 @@ input[type="email"] {
 
   border-bottom: .1em solid var(--color-purple-2);
   margin-bottom: 1.5rem;
-  margin-top: 5rem;
+  margin-top: 3rem;
+
+  @media (min-width: $breakpoint-960) {
+    margin-top: 5rem;
+  }
 }
