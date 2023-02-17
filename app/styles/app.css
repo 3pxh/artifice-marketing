@@ -1,6 +1,6 @@
+@charset "UTF-8";
 /* Imports */
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap");
 /* Design tokens */
 :root {
   /* Color palette */
@@ -12,20 +12,17 @@
   --color-pink: #ff006e;
   --color-purple-1: #9a60eb;
   --color-purple-2: #8338ec;
-  --color-blue: #3a86ff;
-
+  --color-blue-1: #6fa6fd;
+  --color-blue-2: #3a86ff;
   /* Applied color palette */
-  --color-link: var(--color-blue);
-
+  --color-link: var(--color-blue-2);
+  --color-link–hover: var(--color-blue-1);
   /* Typography */
   --font-family-primary: "Work Sans", "system-ui", "sans-serif";
-
   --font-weight-primary-medium: 500;
   --font-weight-primary-semibold: 600;
   --font-weight-primary-bold: 700;
-
   --line-height-base: 1.4;
-
   /* Ref: Perfect fourth scale 
           👉 https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=400&minRatio=1.25&maxFontSize=22&maxWidth=1600&maxRatio=1.333&steps=sm%2Cbase%2Ch5%2Ch4%2Ch3%2Ch2%2Ch1%2Cxl&baseStep=base&prefix=font-size&decimals=2&useRems=on&remValue=16&previewFont=Work+Sans
   */
@@ -38,7 +35,6 @@
   --font-size-h1: clamp(3.05rem, 3.65vw + 2.14rem, 5.79rem);
   --font-size-xl: clamp(3.81rem, 5.2vw + 2.51rem, 7.71rem);
 }
-
 
 /* Global styles */
 :root {
@@ -55,6 +51,11 @@ body {
 /* Links */
 a {
   color: var(--color-link);
+  transition: color 75ms ease-in-out;
+}
+
+a:hover {
+  color: var(--color-link–hover);
 }
 
 /* Typography */
@@ -63,6 +64,7 @@ h1,
   font-family: var(--font-family-primary);
   font-size: var(--font-size-h1);
   font-weight: var(--font-weight-primary-bold);
+  line-height: 1.05;
   margin-bottom: 0;
   margin-top: 0;
 }
@@ -72,6 +74,7 @@ h2,
   font-family: var(--font-family-primary);
   font-size: var(--font-size-h2);
   font-weight: var(--font-weight-primary-bold);
+  line-height: 1.1;
   margin-bottom: 0;
   margin-top: 0;
 }
@@ -81,9 +84,10 @@ h3,
   font-family: var(--font-family-primary);
   font-size: var(--font-size-h3);
   font-weight: var(--font-weight-primary-semibold);
+  line-height: 1.1;
   margin-bottom: 0;
   margin-top: 0;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 h4,
@@ -91,6 +95,7 @@ h4,
   font-family: var(--font-family-primary);
   font-size: var(--font-size-h4);
   font-weight: var(--font-weight-primary-semibold);
+  line-height: 1.2;
   margin-bottom: 0;
   margin-top: 1rem;
 }
@@ -100,6 +105,7 @@ h5,
   font-family: var(--font-family-primary);
   font-size: var(--font-size-h5);
   font-weight: var(--font-weight-primary-semibold);
+  line-height: 1.25;
   margin-bottom: 0;
   margin-top: 1rem;
 }
@@ -107,6 +113,8 @@ h5,
 p {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-primary-medium);
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 p + p {
@@ -123,6 +131,7 @@ small,
   font-family: var(--font-family-primary);
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-primary-bold);
+  line-height: 1;
   margin-bottom: 0;
   margin-top: 0;
 }
@@ -139,7 +148,6 @@ li {
 /* Layout */
 ._container {
   --container-width: 1600px;
-
   margin: 0 auto;
   max-width: var(--container-width);
   padding: 0 1rem;
@@ -162,6 +170,23 @@ li {
   position: initial;
   top: initial;
   width: initial;
+}
+
+/* Button */
+.Button {
+  background-color: var(--color-link);
+  border-radius: 6px;
+  color: var(--color-white);
+  display: inline-block;
+  font-weight: var(--font-weight-primary-semibold);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: background-color 75ms ease-in-out;
+}
+
+.Button:hover {
+  background: var(--color-link–hover);
+  color: var(--color-white);
 }
 
 /* Global header */
@@ -193,16 +218,24 @@ li {
 
 /* Navbar */
 .Navbar a {
+  position: relative;
   text-decoration: none;
 }
 
-.Navbar a:hover {
-  text-decoration: underline;
+.Navbar a::after {
+  background-color: transparent;
+  bottom: -0.35em;
+  content: "";
+  height: 2px;
+  left: -5%;
+  position: absolute;
+  transition: background-color 150ms ease-in-out;
+  width: 110%;
 }
 
-.Navbar a.-is-active {
-  text-decoration: underline;
-  text-decoration-color: var(--color-gray);
+.Navbar a:hover::after,
+.Navbar a.-is-active::after {
+  background-color: var(--color-white);
 }
 
 .Navbar ul {
@@ -216,17 +249,14 @@ li {
 
 /* Hero */
 .Hero {
-  background: linear-gradient(
-    90deg,
-    var(--color-purple-1) 0%,
-    var(--color-yellow) 175%
-  );
+  background: linear-gradient(90deg, var(--color-purple-1) 0%, var(--color-yellow) 175%);
   background-color: var(--color-yellow);
+  color: var(--color-white);
   padding: 5rem 0;
 }
 
-.Hero-title {
-  color: var(--color-white);
+.Hero-description {
+  max-width: 40ch;
 }
 
 /* Style Guide */
@@ -235,6 +265,28 @@ li {
 }
 
 .StyleGuide-heading {
-  border-bottom: .1em solid var(--color-purple-2);
+  border-bottom: 0.1em solid var(--color-purple-2);
+  margin-bottom: 1.5rem;
   margin-top: 3rem;
 }
+
+/* Cards */
+.Cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Card */
+.Card-image {
+  max-width: 100%;
+}
+
+.Card-title {
+  margin-bottom: 0.25rem;
+}
+
+.Card-description {
+  margin-bottom: 1.25rem;
+}
+
+/*# sourceMappingURL=app.css.map */

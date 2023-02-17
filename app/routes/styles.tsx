@@ -9,12 +9,20 @@ export default function Styles() {
     <>
       <section className="Hero">
         <div className="_container">
-          <h1 className="Hero-title">Style Guide</h1>
+          <h1 className="Hero-title">
+            Style Guide
+          </h1>
+
+          <p className="Hero-description _type-h5">
+            This is a style guide for the Artifice Games website. It is a work in progress, and will be updated as the site is developed.
+          </p>
         </div>
       </section>
 
       <section className="StyleGuide _container">
-        <p className="StyleGuide-heading _type-h5">Typography</p>
+        <p className="StyleGuide-heading _type-h5">
+          Typography
+        </p>
 
         <h1 className="_type-xl">XL Heading</h1>
         <h1>Heading 1</h1>
@@ -44,6 +52,54 @@ export default function Styles() {
           <li>Ordered list item</li>
           <li>Ordered list item</li>
         </ol>
+
+        <p className="StyleGuide-heading _type-h5">
+          Cards
+        </p>
+
+        <div className="Cards">
+          <div className="Card">
+            <img className="Card-image" src="https://images.unsplash.com/photo-1585881728919-5c0ce925ad10?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="" />
+
+            <h3 className="Card-title _type-h4">Gisticle</h3>
+
+            <p className="Card-description">
+              Lorem ipsum is a placeholder text commonly used in publishing, graphic design, and web development.
+            </p>
+
+            <a className="Card-button Button" href="/">
+              Play Now →
+            </a>
+          </div>
+
+          <div className="Card">
+            <img className="Card-image" src="https://images.unsplash.com/photo-1585881728919-5c0ce925ad10?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="" />
+
+            <h3 className="Card-title _type-h4">Farsketched</h3>
+
+            <p className="Card-description">
+              Lorem ipsum is a placeholder text commonly used in publishing, graphic design, and web development.
+            </p>
+
+            <a className="Card-button Button" href="/">
+              Play Now →
+            </a>
+          </div>
+
+          <div className="Card">
+            <img className="Card-image" src="https://images.unsplash.com/photo-1585881728919-5c0ce925ad10?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="" />
+
+            <h3 className="Card-title _type-h4">Tresmojis</h3>
+
+            <p className="Card-description">
+              Lorem ipsum is a placeholder text commonly used in publishing, graphic design, and web development.
+            </p>
+
+            <a className="Card-button Button" href="/">
+              Play Now →
+            </a>
+          </div>
+        </div>
       </section>
     </>
   );
