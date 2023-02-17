@@ -1,9 +1,14 @@
 {
+  "name": "artifice",
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "build": "remix build",
-    "dev": "remix dev",
+    "build": "npm run build:sass && npm run build:remix",
+    "build:remix": "remix build",
+    "build:sass": "sass --load-path=node_modules app/:app/",
+    "dev": "concurrently \"npm run dev:sass\" \"npm run dev:remix\"",
+    "dev:sass": "sass --load-path=node_modules --watch app/:app/",
+    "dev:remix": "remix dev",
     "start": "cross-env NODE_ENV=production netlify dev",
     "typecheck": "tsc"
   },
@@ -23,9 +28,13 @@
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
     "eslint": "^8.27.0",
+    "sass": "^1.58.2",
     "typescript": "^4.8.4"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
+  },
+  "volta": {
+    "node": "16.15.0"
   }
 }
