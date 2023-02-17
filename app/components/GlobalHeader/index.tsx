@@ -1,3 +1,32 @@
+import { NavLink } from "@remix-run/react"
+
+const navigation = [
+  {
+    label: "Home",
+    href: "/",
+  },
+  {
+    label: "What is Artifice?",
+    href: "/what-is-artifice",
+  },
+  {
+    label: "Games",
+    href: "/games",
+  },
+  {
+    label: "How to play",
+    href: "/how-to-play",
+  },
+  {
+    label: "Updates",
+    href: "/blog",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
+  },
+];
+
 export const GlobalHeader = () => {
   return (
     <header className="GlobalHeader">
@@ -14,29 +43,22 @@ export const GlobalHeader = () => {
 
         <nav className="GlobalHeader-nav">
           <ul>
-            <li>
-              <a href="/" className="-is-active">Home</a>
-            </li>
+            {navigation?.map((item: { 
+              label: string;
+              href: string;
+            }) => {
+              const { label, href } = item;
 
-            <li>
-              <a href="/what-is-artifice">What is Artifice?</a>
-            </li>
-
-            <li>
-              <a href="/games">Games</a>
-            </li>
-
-            <li>
-              <a href="/how-to-play">How to play</a>
-            </li>
-
-            <li>
-              <a href="/blog">Updates</a>
-            </li>
-
-            <li>
-              <a href="/contact">Contact</a>
-            </li>
+              return (
+                <li key={item.label}>
+                  <NavLink 
+                    to={href} 
+                    className={({ isActive }) => isActive ? '-is-active' : undefined}>
+                    {label}
+                  </NavLink> 
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </div>
