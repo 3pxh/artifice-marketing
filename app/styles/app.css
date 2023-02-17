@@ -1,0 +1,240 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+/* Design tokens */
+:root {
+  /* Color palette */
+  --color-black: #000;
+  --color-white: #fff;
+  --color-gray: #3f3f3f;
+  --color-yellow: #ffbe0b;
+  --color-orange: #fb5607;
+  --color-pink: #ff006e;
+  --color-purple-1: #9a60eb;
+  --color-purple-2: #8338ec;
+  --color-blue: #3a86ff;
+
+  /* Applied color palette */
+  --color-link: var(--color-blue);
+
+  /* Typography */
+  --font-family-primary: "Work Sans", "system-ui", "sans-serif";
+
+  --font-weight-primary-medium: 500;
+  --font-weight-primary-semibold: 600;
+  --font-weight-primary-bold: 700;
+
+  --line-height-base: 1.4;
+
+  /* Ref: Perfect fourth scale 
+          👉 https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=400&minRatio=1.25&maxFontSize=22&maxWidth=1600&maxRatio=1.333&steps=sm%2Cbase%2Ch5%2Ch4%2Ch3%2Ch2%2Ch1%2Cxl&baseStep=base&prefix=font-size&decimals=2&useRems=on&remValue=16&previewFont=Work+Sans
+  */
+  --font-size-sm: clamp(0.8rem, 0.31vw + 0.72rem, 1.03rem);
+  --font-size-base: clamp(1rem, 0.5vw + 0.88rem, 1.38rem);
+  --font-size-h5: clamp(1.25rem, 0.78vw + 1.06rem, 1.83rem);
+  --font-size-h4: clamp(1.56rem, 1.17vw + 1.27rem, 2.44rem);
+  --font-size-h3: clamp(1.95rem, 1.74vw + 1.52rem, 3.26rem);
+  --font-size-h2: clamp(2.44rem, 2.53vw + 1.81rem, 4.34rem);
+  --font-size-h1: clamp(3.05rem, 3.65vw + 2.14rem, 5.79rem);
+  --font-size-xl: clamp(3.81rem, 5.2vw + 2.51rem, 7.71rem);
+}
+
+
+/* Global styles */
+:root {
+  color: var(--color-black);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-primary-medium);
+  line-height: var(--line-height-base);
+}
+
+body {
+  margin: 0;
+}
+
+/* Links */
+a {
+  color: var(--color-link);
+}
+
+/* Typography */
+h1,
+._type-h1 {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-primary-bold);
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+h2,
+._type-h2 {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-primary-bold);
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+h3,
+._type-h3 {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-primary-semibold);
+  margin-bottom: 0;
+  margin-top: 0;
+  margin-top: .5rem;
+}
+
+h4,
+._type-h4 {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-primary-semibold);
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
+
+h5,
+._type-h5 {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-primary-semibold);
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
+
+p {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-primary-medium);
+}
+
+p + p {
+  margin-top: 1rem;
+}
+
+small,
+._type-sm {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-primary-medium);
+}
+
+._type-xl {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-primary-bold);
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+strong {
+  font-weight: var(--font-weight-primary-bold);
+}
+
+/* Lists */
+li {
+  font-size: var(--font-size-base);
+}
+
+/* Layout */
+._container {
+  --container-width: 1600px;
+
+  margin: 0 auto;
+  max-width: var(--container-width);
+  padding: 0 1rem;
+}
+
+/* Visibility */
+._a11y_hidden {
+  height: 1px;
+  left: -10000px;
+  overflow: hidden;
+  position: absolute;
+  top: auto;
+  width: 1px;
+}
+
+._a11y_visible {
+  height: initial;
+  left: initial;
+  overflow: initial;
+  position: initial;
+  top: initial;
+  width: initial;
+}
+
+/* Global header */
+.GlobalHeader {
+  background-color: var(--color-black);
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.GlobalHeader-logo {
+  max-height: 100px;
+  width: auto;
+}
+
+.GlobalHeader-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Global Footer */
+.GlobalFooter {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+/* Navbar */
+.Navbar a {
+  text-decoration: none;
+}
+
+.Navbar a:hover {
+  text-decoration: underline;
+}
+
+.Navbar a.-is-active {
+  text-decoration: underline;
+  text-decoration-color: var(--color-gray);
+}
+
+.Navbar ul {
+  align-items: center;
+  display: flex;
+}
+
+.Navbar li:not(:last-of-type) {
+  margin-right: 1.75rem;
+}
+
+/* Hero */
+.Hero {
+  background: linear-gradient(
+    90deg,
+    var(--color-purple-1) 0%,
+    var(--color-yellow) 175%
+  );
+  background-color: var(--color-yellow);
+  padding: 5rem 0;
+}
+
+.Hero-title {
+  color: var(--color-white);
+}
+
+/* Style Guide */
+.StyleGuide {
+  margin-bottom: 3rem;
+}
+
+.StyleGuide-heading {
+  border-bottom: .1em solid var(--color-purple-2);
+  margin-top: 3rem;
+}
