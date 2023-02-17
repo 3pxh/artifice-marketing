@@ -1,4 +1,6 @@
-# Welcome to Remix!
+# Artifice
+
+Built using [Remix](http://remix.run/) and [Netlify](http://netlify.com).
 
 - [Remix Docs](https://remix.run/docs)
 - [Netlify Functions](https://www.netlify.com/products/functions/)
