@@ -1,8 +1,8 @@
+import { Form } from "~/components/Form";
 import { Heading } from "~/components/Heading";
 import { Hero } from "~/components/Hero";
 import { HorizontalCards } from "~/components/HorizontalCards";
-import { NarrowCenteredContent } from "~/components/NarrowCenteredContent";
-import { Newsletter } from "~/components/Newsletter";
+import { CenteredContent } from "~/components/CenteredContent";
 import { VerticalCards } from "~/components/VerticalCards";
 import games from "~/data/games";
 import styles from "~/styles/app.css";
@@ -63,16 +63,39 @@ export default function Styles() {
         <VerticalCards items={games} />
 
         <p className="StyleGuide-heading">
-          Newsletter
+          Centered Content
         </p>
 
-        <Newsletter heading="Subscribe for updates" description="Get the latest updates on news and games from Artifice delivered straight to your inbox." />
-
-        <p className="StyleGuide-heading">
-          Narrow Centered Content
+        <p className="StyleGuide-subheading">
+          Generic content
         </p>
 
-        <NarrowCenteredContent heading="Learn more about Artifice" description="The Lorem ipsum text has been used in the printing and typesetting industry since the 1500s and is believed to have originated from a scrambled version of a Latin text by Cicero. The purpose of using Lorem ipsum is to demonstrate the visual layout of a document without getting distracted by the content itself. While the text does not make any sense, it has a relatively standard distribution of letters and words, which makes it a suitable placeholder for testing formatting, layout, and design." />
+        <CenteredContent 
+          contentWidth="narrow"
+          paddingY={3}
+          heading="Learn more about Artifice" 
+          description="The Lorem ipsum text has been used in the printing and typesetting industry since the 1500s and is believed to have originated from a scrambled version of a Latin text by Cicero. The purpose of using Lorem ipsum is to demonstrate the visual layout of a document without getting distracted by the content itself. While the text does not make any sense, it has a relatively standard distribution of letters and words, which makes it a suitable placeholder for testing formatting, layout, and design." 
+          children={
+            <Form />
+          }
+        />
+
+        <p className="StyleGuide-subheading">
+          Newsletter form
+        </p>
+
+        <CenteredContent 
+          background="purple-1"
+          color="white"
+          contentWidth="narrow"
+          paddingY={5}
+          heading="Subscribe for updates" 
+          description="Get the latest updates on news and games from Artifice delivered straight to your inbox." 
+          textAlignment="center"
+          children={
+            <Form />
+          }
+        />
       </div>
     </>
   );

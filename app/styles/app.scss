@@ -71,9 +71,87 @@ $colors: (
 // Utilities
 // ---------
 
+// Background colors
 @each $color, $value in $colors {
   ._bg-#{$color} {
     background-color: var(--color-#{$color});
+  }
+}
+
+// Text colors
+@each $color, $value in $colors {
+  ._text-#{$color} {
+    color: var(--color-#{$color});
+  }
+}
+
+// Spacing
+@each $size in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10) {
+  ._p-#{$size} {
+    padding: #{$size}rem;
+  }
+
+  ._pX-#{$size} {
+    padding-left: #{$size}rem;
+    padding-right: #{$size}rem;
+  }
+
+  ._pY-#{$size} {
+    padding-bottom: #{$size}rem;
+    padding-top: #{$size}rem;
+  }
+
+  ._pt-#{$size} {
+    padding-top: #{$size}rem;
+  }
+
+  ._pr-#{$size} {
+    padding-right: #{$size}rem;
+  }
+
+  ._pb-#{$size} {
+    padding-bottom: #{$size}rem;
+  }
+
+  ._pl-#{$size} {
+    padding-left: #{$size}rem;
+  }
+
+  ._m-#{$size} {
+    margin: #{$size}rem;
+  }
+
+  ._mX-#{$size} {
+    margin-left: #{$size}rem;
+    margin-right: #{$size}rem;
+  }
+
+  ._mY-#{$size} {
+    margin-bottom: #{$size}rem;
+    margin-top: #{$size}rem;
+  }
+
+  ._mt-#{$size} {
+    margin-top: #{$size}rem;
+  }
+
+  ._mr-#{$size} {
+    margin-right: #{$size}rem;
+  }
+
+  ._mb-#{$size} {
+    margin-bottom: #{$size}rem;
+  }
+
+  ._ml-#{$size} {
+    margin-left: #{$size}rem;
+  }
+}
+
+// Text alignment
+@each $alignment in (left, center, right) {
+  ._text-#{$alignment} {
+    text-align: #{$alignment};
   }
 }
 
@@ -148,7 +226,7 @@ a,
 
   font-size: var(--font-size-h4);
   font-weight: var(--font-weight-primary-semibold);
-  line-height: 1.2;
+  line-height: 1.25;
   margin-top: 1rem;
 }
 
@@ -520,55 +598,25 @@ input[type="email"] {
 
 
 //
-// Newsletter
-// ----------
-
-.Newsletter {
-  background-color: var(--color-purple-1);
-  color: var(--color-white);
-  padding-bottom: 3rem;
-  padding-top: 3rem;
-  text-align: center;
-
-  @media (min-width: $breakpoint-960) {
-    padding-bottom: 5rem;
-    padding-top: 5rem;
-  }
-}
-
-.Newsletter-heading {
-  @include h3();
-}
-
-.Newsletter-form {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 450px;
-  margin-top: 1.75rem;
-
-  > input {
-    margin-right: .5rem;
-  }
-}
-
-.Newsletter-description {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: .5rem;
-  max-width: 40ch;
-}
-
-
-//
 // Narrow Centered Content
 // -----------------------
 
 .CenteredContent {
   margin-left: auto;
   margin-right: auto;
-  max-width: 70ch;
+}
+
+.CenteredContent-content {
+  // Modifiers
+  &.-width {
+    &-narrow {
+      max-width: 60ch;
+    }
+
+    &-wide {
+      max-width: 90ch;
+    }
+  }
 }
 
 
@@ -591,13 +639,32 @@ input[type="email"] {
 }
 
 .StyleGuide-heading {
-  @include h5();
+  @include h4();
 
-  border-bottom: .1em solid var(--color-purple-2);
+  border-bottom: .1em solid var(--color-purple-1);
   margin-bottom: 1.5rem;
   margin-top: 3rem;
 
   @media (min-width: $breakpoint-960) {
     margin-top: 5rem;
+  }
+}
+
+.StyleGuide-subheading {
+  @include h5();
+
+  border-bottom: .05em solid var(--color-purple-2);
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  padding-left: 3rem;
+  position: relative;
+
+  &::before {
+    content: '↪️';
+    display: block;
+    left: .5rem;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
 }
