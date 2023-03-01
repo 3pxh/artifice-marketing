@@ -1,23 +1,17 @@
-import { Heading } from "../Heading";
+import type { StackProps } from "../Stack";
+import { Stack } from "../Stack";
 
-type HeroProps = {
-  heading: string;
-  description?: string;
-};
-
-export const Hero = (props: HeroProps) => {
-  const { heading, description } = props;
+export const Hero = (props: StackProps) => {
+  const { heading, headingSize, description } = props;
 
   return (
     <section className="Hero">
       <div className="_container">
-        <Heading size={1}>
-          {heading}
-        </Heading>
-
-        <p className="Hero-description">
-          {description}
-        </p>
+        <Stack
+          heading={heading}
+          headingSize={headingSize}
+          description={description}
+        />
       </div>
     </section>
   );

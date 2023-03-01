@@ -266,6 +266,7 @@ h5,
 
 // Paragraphs
 @mixin paragraph() {
+  font-family: var(--font-family-primary);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-primary-medium);
 }
@@ -273,20 +274,26 @@ h5,
 p,
 ._text-p {
   @include paragraph();
-
+  
   margin-bottom: 0;
   margin-top: 0;
-
+  
   & + p {
     margin-top: 1rem;
   }
 }
 
 // Type sizes and decorations
-small,
-._text-sm {
+@mixin textSmall() {
+  @include paragraph();
+
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-primary-medium);
+}
+
+small,
+._text-sm {
+  @include textSmall();
 }
 
 ._text-xl {
@@ -351,22 +358,47 @@ li {
 
 
 //
-// Forms
-// -----
+// Inputs
+// ------
 
-input[type="text"],
-input[type="email"] {
-  @include paragraph();
+@mixin input {
+  @include textSmall();
 
   background-color: var(--color-white);
   border: 1px solid var(--color-gray);
   color: var(--color-black);
-  padding: 0.5rem 1.25rem;
+  padding-bottom: .75rem;
+  padding-top: .75rem;
+  text-indent: .75rem;
   transition: border-color 75ms ease-in-out;
 
   &:focus {
     border-color: var(--color-link);
     outline: none;
+  }
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  @include input();
+}
+
+
+//
+// Forms
+// -----
+
+.Form {
+  text-align: left;
+
+  // Descendants
+  label,
+  input,
+  textarea {
+    display: block;
+    margin-bottom: 0.5rem;
+    width: 100%;
   }
 }
 

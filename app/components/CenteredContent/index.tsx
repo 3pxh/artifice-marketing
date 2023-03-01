@@ -1,9 +1,7 @@
+import type { StackProps } from "../Stack";
 import { Stack } from "../Stack";
 
-type CenteredContentProps = {
-  heading: string;
-  headingSize?: number;
-  description: string;
+type CenteredContentProps = StackProps & {
   background?: string;
   color?: string;
   contentWidth?: 'narrow' | 'wide';
@@ -28,10 +26,10 @@ export const CenteredContent = (props: CenteredContentProps) => {
   return (
     <section className={`
       CenteredContent 
-      ${background && `_bg-${background}`} 
-      ${color && `_text-${color}`} 
-      ${paddingY && `_pY-${paddingY}`}
-      ${textAlignment && `_text-${textAlignment}`}
+      ${background ? `_bg-${background}` : ''} 
+      ${color ? `_text-${color}` : ''} 
+      ${paddingY ? `_pY-${paddingY}` : ''}
+      ${textAlignment ? `_text-${textAlignment}` : ''}
     `}>
       <div className={`CenteredContent-content _container ${contentWidth && `-width-${contentWidth}`}`}>
         <Stack

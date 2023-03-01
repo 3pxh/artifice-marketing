@@ -1,31 +1,45 @@
 import { Heading } from "../Heading";
 
-type StackProps = {
-  heading: string;
+export type StackProps = {
+  heading?: string;
   headingSize?: number;
-  description: string;
+  description?: string;
   link?: string;
   linkText?: string;
 };
 
 export const Stack = (props: StackProps) => {
-  const { heading, headingSize = 3, description, link, linkText } = props;
+  const { 
+    heading, 
+    headingSize = 3, 
+    description, 
+    link, 
+    linkText 
+  } = props;
 
-  return (
-    <div className="Stack">
-      <Heading size={headingSize} className="Stack-heading">
-        {heading}
-      </Heading>
+  if (heading || description || link || linkText) {
+    return (
+      <div className="Stack">
+        {heading && (
+          <Heading size={headingSize} className="Stack-heading">
+            {heading}
+          </Heading>
+        )}
 
-      <p className="Stack-description">
-        {description}
-      </p>
+        {description && (
+          <p className="Stack-description">
+            {description}
+          </p>
+        )}
 
-      {link && linkText && (
-        <a className="Button" href={link}>
-          {linkText}
-        </a>
-      )}
-    </div>
-  );
+        {link && linkText && (
+          <a className="Button" href={link}>
+            {linkText}
+          </a>
+        )}
+      </div>
+    );
+  } else {
+    return null;
+  }
 };

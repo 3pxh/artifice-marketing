@@ -1,3 +1,4 @@
+import type { StackProps } from "../Stack";
 import { Stack } from "../Stack";
 
 type HorizontalCardsProps = {
@@ -9,12 +10,7 @@ export const HorizontalCards = (props: HorizontalCardsProps) => {
 
   return (
     <section className="HorizontalCards">
-      {items?.map((item: { 
-        heading: string; 
-        headingSize?: number;
-        description: string; 
-        link: string; 
-        linkText: string;
+      {items?.map((item: StackProps & { 
         image: string 
       }) => {
         const { 
