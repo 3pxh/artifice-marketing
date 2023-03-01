@@ -408,10 +408,10 @@ input[type="email"] {
 
 
 //
-// Cards
-// -----
+// Horizontal Cards
+// ----------------
 
-.Cards {
+.HorizontalCards {
   display: grid;
   grid-gap: 3rem;
   grid-template-columns: repeat(1, 1fr);
@@ -426,18 +426,12 @@ input[type="email"] {
   }
 }
 
-.Cards-image {
+.HorizontalCards-image {
   max-width: 100%;
 }
 
-.Cards-heading {
+.HorizontalCards-heading {
   @include h4();
-
-  margin-bottom: .25rem;
-}
-
-.Cards-description {
-  margin-bottom: 1.25rem;
 }
 
 
@@ -480,6 +474,64 @@ input[type="email"] {
   margin-right: auto;
   margin-top: .5rem;
   max-width: 40ch;
+}
+
+
+//
+// Horizontal Cards
+// ----------------
+
+.VerticalCards-item {
+  align-items: center;
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: repeat(6, 1fr);
+
+  &:nth-child(even) {
+    .VerticalCards-image {
+      grid-column: 4 / -1;
+    }
+
+    .VerticalCards-content {
+      order: -1;
+      grid-column: 1 / span 3;
+    }
+  }
+
+  &:nth-child(odd) {
+    .VerticalCards-image {
+      grid-column: 1 / span 3;
+    }
+
+    .VerticalCards-content {
+      grid-column: 4 / -1;
+    }
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 1.5rem;
+
+    @media (min-width: $breakpoint-960) {
+      margin-bottom: 3rem;
+    }
+  }
+}
+
+.VerticalCards-image {
+  max-width: 100%;
+}
+
+
+//
+// Stack
+// -----
+
+.Stack-heading {
+  margin-bottom: .25rem;
+}
+
+.Stack-description {
+  margin-bottom: 1.25rem;
 }
 
 

@@ -1,7 +1,8 @@
-import { Cards } from "~/components/Cards";
 import { Heading } from "~/components/Heading";
 import { Hero } from "~/components/Hero";
+import { HorizontalCards } from "~/components/HorizontalCards";
 import { Newsletter } from "~/components/Newsletter";
+import { VerticalCards } from "~/components/VerticalCards";
 import games from "~/data/games";
 import styles from "~/styles/app.css";
 
@@ -49,10 +50,16 @@ export default function Styles() {
         </ol>
 
         <p className="StyleGuide-heading">
-          Cards
+          Horizontal Cards
         </p>
 
-        <Cards items={games} />
+        <HorizontalCards items={games} />
+
+        <p className="StyleGuide-heading">
+          Vertical Cards
+        </p>
+
+        <VerticalCards items={games} />
 
         <p className="StyleGuide-heading">
           Newsletter

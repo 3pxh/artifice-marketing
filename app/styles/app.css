@@ -288,39 +288,34 @@ input[type=email]:focus {
   max-width: 40ch;
 }
 
-.Cards {
+.HorizontalCards {
   display: grid;
   grid-gap: 3rem;
   grid-template-columns: repeat(1, 1fr);
 }
 @media (min-width: 960px) {
-  .Cards {
+  .HorizontalCards {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 0.75rem;
   }
 }
 @media (min-width: 1200px) {
-  .Cards {
+  .HorizontalCards {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.Cards-image {
+.HorizontalCards-image {
   max-width: 100%;
 }
 
-.Cards-heading {
+.HorizontalCards-heading {
   font-family: var(--font-family-primary);
   margin-bottom: 0;
   font-size: var(--font-size-h4);
   font-weight: var(--font-weight-primary-semibold);
   line-height: 1.2;
   margin-top: 1rem;
-  margin-bottom: 0.25rem;
-}
-
-.Cards-description {
-  margin-bottom: 1.25rem;
 }
 
 .Newsletter {
@@ -363,6 +358,46 @@ input[type=email]:focus {
   margin-right: auto;
   margin-top: 0.5rem;
   max-width: 40ch;
+}
+
+.VerticalCards-item {
+  align-items: center;
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: repeat(6, 1fr);
+}
+.VerticalCards-item:nth-child(even) .VerticalCards-image {
+  grid-column: 4/-1;
+}
+.VerticalCards-item:nth-child(even) .VerticalCards-content {
+  order: -1;
+  grid-column: 1/span 3;
+}
+.VerticalCards-item:nth-child(odd) .VerticalCards-image {
+  grid-column: 1/span 3;
+}
+.VerticalCards-item:nth-child(odd) .VerticalCards-content {
+  grid-column: 4/-1;
+}
+.VerticalCards-item:not(:last-of-type) {
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 960px) {
+  .VerticalCards-item:not(:last-of-type) {
+    margin-bottom: 3rem;
+  }
+}
+
+.VerticalCards-image {
+  max-width: 100%;
+}
+
+.Stack-heading {
+  margin-bottom: 0.25rem;
+}
+
+.Stack-description {
+  margin-bottom: 1.25rem;
 }
 
 .Homepage {
