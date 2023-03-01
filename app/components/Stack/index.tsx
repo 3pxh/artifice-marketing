@@ -2,14 +2,14 @@ import { Heading } from "../Heading";
 
 type StackProps = {
   heading: string;
-  headingSize: number;
+  headingSize?: number;
   description: string;
-  link: string;
-  linkText: string;
+  link?: string;
+  linkText?: string;
 };
 
 export const Stack = (props: StackProps) => {
-  const { heading, headingSize, description, link, linkText } = props;
+  const { heading, headingSize = 3, description, link, linkText } = props;
 
   return (
     <div className="Stack">
@@ -21,9 +21,11 @@ export const Stack = (props: StackProps) => {
         {description}
       </p>
 
-      <a className="Button" href={link}>
-        {linkText}
-      </a>
+      {link && linkText && (
+        <a className="Button" href={link}>
+          {linkText}
+        </a>
+      )}
     </div>
   );
 };
