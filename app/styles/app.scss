@@ -16,6 +16,20 @@ $breakpoint-960: 960px;
 $breakpoint-1200: 1200px;
 $breakpoint-1440: 1440px;
 
+// Colors
+$colors: (
+  black: #000,
+  white: #fff,
+  gray: #3f3f3f,
+  yellow: #ffbe0b,
+  orange: #fb5607,
+  pink: #ff006e,
+  purple-1: #9a60eb,
+  purple-2: #8338ec,
+  blue-1: #6fa6fd,
+  blue-2: #3a86ff,
+);
+
 
 // 
 // Design Tokens
@@ -23,16 +37,9 @@ $breakpoint-1440: 1440px;
 
 :root {
   // Color palette
-  --color-black: #000;
-  --color-white: #fff;
-  --color-gray: #3f3f3f;
-  --color-yellow: #ffbe0b;
-  --color-orange: #fb5607;
-  --color-pink: #ff006e;
-  --color-purple-1: #9a60eb;
-  --color-purple-2: #8338ec;
-  --color-blue-1: #6fa6fd;
-  --color-blue-2: #3a86ff;
+  @each $name, $value in $colors {
+    --color-#{$name}: #{$value};
+  }
 
   // Applied color palette
   --color-link: var(--color-blue-2);
@@ -61,6 +68,17 @@ $breakpoint-1440: 1440px;
 
 
 //
+// Utilities
+// ---------
+
+@each $color, $value in $colors {
+  ._bg-#{$color} {
+    background-color: var(--color-#{$color});
+  }
+}
+
+
+//
 // Global
 // ------
 
@@ -81,7 +99,8 @@ body {
 // ----------
 
 // Links
-a {
+a,
+._link {
   color: var(--color-link);
   transition: color 75ms ease-in-out;
 
@@ -173,7 +192,8 @@ h5,
   font-weight: var(--font-weight-primary-medium);
 }
 
-p {
+p,
+._text-p {
   @include paragraph();
 
   margin-bottom: 0;
@@ -186,12 +206,12 @@ p {
 
 // Type sizes and decorations
 small,
-.text-sm {
+._text-sm {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-primary-medium);
 }
 
-.text-xl {
+._text-xl {
   font-family: var(--font-family-primary);
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-primary-bold);
@@ -200,8 +220,14 @@ small,
   margin-top: 0;
 }
 
-strong {
+strong,
+._text-strong {
   font-weight: var(--font-weight-primary-bold);
+}
+
+em,
+._text-em {
+  font-style: italic;
 }
 
 // Lists
@@ -539,7 +565,7 @@ input[type="email"] {
 // Narrow Centered Content
 // -----------------------
 
-.NarrowCenteredContent {
+.CenteredContent {
   margin-left: auto;
   margin-right: auto;
   max-width: 70ch;

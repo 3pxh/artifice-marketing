@@ -28,6 +28,46 @@
   --font-size-xl: clamp(3.81rem, 5.2vw + 2.51rem, 7.71rem);
 }
 
+._bg-black {
+  background-color: var(--color-black);
+}
+
+._bg-white {
+  background-color: var(--color-white);
+}
+
+._bg-gray {
+  background-color: var(--color-gray);
+}
+
+._bg-yellow {
+  background-color: var(--color-yellow);
+}
+
+._bg-orange {
+  background-color: var(--color-orange);
+}
+
+._bg-pink {
+  background-color: var(--color-pink);
+}
+
+._bg-purple-1 {
+  background-color: var(--color-purple-1);
+}
+
+._bg-purple-2 {
+  background-color: var(--color-purple-2);
+}
+
+._bg-blue-1 {
+  background-color: var(--color-blue-1);
+}
+
+._bg-blue-2 {
+  background-color: var(--color-blue-2);
+}
+
 :root {
   color: var(--color-black);
   font-family: var(--font-family-primary);
@@ -39,11 +79,13 @@ body {
   margin: 0;
 }
 
-a {
+a,
+._link {
   color: var(--color-link);
   transition: color 75ms ease-in-out;
 }
-a:hover {
+a:hover,
+._link:hover {
   color: var(--color-link–hover);
 }
 
@@ -97,23 +139,25 @@ h5,
   margin-top: 1rem;
 }
 
-p {
+p,
+._text-p {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-primary-medium);
   margin-bottom: 0;
   margin-top: 0;
 }
-p + p {
+p + p,
+._text-p + p {
   margin-top: 1rem;
 }
 
 small,
-.text-sm {
+._text-sm {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-primary-medium);
 }
 
-.text-xl {
+._text-xl {
   font-family: var(--font-family-primary);
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-primary-bold);
@@ -122,8 +166,14 @@ small,
   margin-top: 0;
 }
 
-strong {
+strong,
+._text-strong {
   font-weight: var(--font-weight-primary-bold);
+}
+
+em,
+._text-em {
+  font-style: italic;
 }
 
 li {
@@ -400,7 +450,7 @@ input[type=email]:focus {
   max-width: 40ch;
 }
 
-.NarrowCenteredContent {
+.CenteredContent {
   margin-left: auto;
   margin-right: auto;
   max-width: 70ch;
